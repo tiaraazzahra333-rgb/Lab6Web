@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eksperimen 5 - Script tanpa defer</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:850px;margin:40px auto;padding:0 20px;color:#18343b;line-height:1.6;background:#f4f8f7}
+    main{background:white;padding:28px;border-radius:16px;box-shadow:0 8px 28px #173f7515}
+    h1{color:#176777}code,pre{background:#eef4f4;padding:3px 6px;border-radius:5px}
+    pre{padding:16px;overflow:auto}.notice{padding:14px;background:#fff4df;border-left:4px solid #d99b26;border-radius:8px}
+    #hasil{padding:14px;background:#e7f5ef;border-radius:8px}
+  </style>
+  <!-- Script sengaja diletakkan di head TANPA defer untuk eksperimen. -->
+  <script>
+    const tombolUji = document.getElementById("tombolUji");
+    console.log("Hasil pemilihan elemen sebelum HTML selesai diparsing:", tombolUji);
+    try {
+      tombolUji.addEventListener("click", function () {
+        alert("Tombol berhasil diklik.");
+      });
+    } catch (error) {
+      console.error("Eksperimen gagal seperti yang diperkirakan:", error);
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("hasil").textContent =
+          "Hasil pengamatan: elemen tombol bernilai null ketika script dijalankan. addEventListener() gagal karena elemen belum tersedia saat HTML belum selesai diparsing.";
+      });
+    }
+  </script>
+</head>
+<body>
+  <main>
+    <p><strong>Praktikum 6 · Eksperimen Mandiri nomor 5</strong></p>
+    <h1>Pengujian JavaScript tanpa defer</h1>
+    <p>Halaman ini menguji apa yang terjadi ketika file JavaScript dijalankan dari bagian <code>&lt;head&gt;</code> tanpa atribut <code>defer</code>.</p>
+    <div class="notice"><strong>Catatan:</strong> Script sengaja dijalankan sebelum elemen tombol di bawah dibaca browser. Buka Developer Tools → Console untuk melihat nilai <code>null</code> dan pesan error.</div>
+    <h2>Elemen yang dicoba dipilih</h2>
+    <button id="tombolUji" type="button">Tombol uji</button>
+    <h2>Hasil pengamatan</h2>
+    <p id="hasil">Menunggu HTML selesai diparsing...</p>
+    <h2>Kesimpulan</h2>
+    <p>Tanpa <code>defer</code>, browser menjalankan JavaScript ketika menemukan tag script di bagian head. Pada saat itu elemen body belum dibentuk, sehingga <code>getElementById()</code> menghasilkan <code>null</code>. Ketika <code>addEventListener()</code> dipanggil pada nilai null, terjadi error. Atribut <code>defer</code> menunda eksekusi script sampai HTML selesai diparsing.</p>
+    <h2>Contoh perbaikan</h2>
+    <pre>&lt;script src="script.js" defer&gt;&lt;/script&gt;</pre>
+    <p><a href="index.html">Kembali ke halaman utama praktikum</a></p>
+  </main>
+</body>
+</html>

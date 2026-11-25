@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praktikum 6 - JavaScript DOM & Event Handling</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">PEMROGRAMAN WEB · PRAKTIKUM 6</span>
+      <h1>JavaScript DOM &<br><span>Event Handling</span></h1>
+      <p>Belajar membuat halaman web yang interaktif melalui manipulasi DOM, event listener, dan validasi form.</p>
+      <a class="hero-link" href="#latihan">Mulai Praktikum <span>↓</span></a>
+    </div>
+    <div class="hero-mark" aria-hidden="true">JS</div>
+  </header>
+
+  <main class="container" id="latihan">
+    <div class="section-heading">
+      <div><span class="eyebrow">BAGIAN 01</span><h2>Latihan Praktikum</h2></div>
+      <p>Enam latihan dasar sesuai modul.</p>
+    </div>
+
+    <section class="panel">
+      <div class="panel-title"><span class="number">01</span><div><h3>Mengubah teks dengan DOM</h3><p>Memilih elemen berdasarkan ID lalu memperbarui kontennya.</p></div></div>
+      <h2 id="judul">Latihan DOM</h2>
+      <p id="pesan">Belum ada tindakan.</p>
+      <button id="tombolAksi" type="button">Ubah teks</button>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="number">02</span><div><h3>Event click</h3><p>Tombol memperbarui pesan dan menampilkan waktu saat diklik.</p></div></div>
+      <p id="pesanWaktu" class="muted">Belum ada tombol yang diklik.</p>
+      <button id="tombolWaktu" type="button">Tampilkan waktu</button>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="number">03</span><div><h3>Mengubah kelas dan gaya CSS</h3><p>Gunakan classList.toggle() untuk mengaktifkan atau menonaktifkan gaya.</p></div></div>
+      <p id="teksGaya" class="sample-text">Klik tombol untuk mengubah tampilan paragraf ini.</p>
+      <button id="tombolGaya" type="button" class="secondary">Ubah tampilan</button>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="number">04</span><div><h3>Event input dan penghitung karakter</h3><p>Jumlah karakter berubah secara langsung saat pengguna mengetik.</p></div></div>
+      <label for="namaInput">Nama</label>
+      <input type="text" id="namaInput" maxlength="40" placeholder="Ketik nama di sini...">
+      <p class="counter">Jumlah karakter: <strong id="jumlahKarakter">0</strong> / 40</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="number">05</span><div><h3>Validasi form pendaftaran</h3><p>Memeriksa nama, format email, dan usia 17–100 tahun.</p></div></div>
+      <form id="formPendaftaran" novalidate>
+        <div class="form-grid">
+          <div><label for="nama">Nama lengkap</label><input id="nama" name="nama" type="text" placeholder="Nama lengkap"></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="nama@email.com"></div>
+          <div><label for="usia">Usia</label><input id="usia" name="usia" type="number" min="17" max="100" placeholder="Minimal 17 tahun"></div>
+        </div>
+        <button type="submit">Periksa pendaftaran</button>
+        <button type="reset" class="secondary">Reset</button>
+      </form>
+      <p id="pesanForm" class="feedback" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span class="number">06</span><div><h3>Daftar tugas sederhana (To-do List)</h3><p>Tambah tugas, tandai selesai, dan hapus tugas satu per satu.</p></div></div>
+      <div class="inline-form"><label class="sr-only" for="inputTugas">Tugas baru</label><input id="inputTugas" type="text" placeholder="Tulis tugas baru..."><button id="tambahTugas" type="button">Tambah</button></div>
+      <p id="pesanTugas" class="feedback" aria-live="polite"></p>
+      <ul id="daftarTugas" class="todo-list"></ul>
+    </section>
+
+    <div class="section-heading mini-heading">
+      <div><span class="eyebrow">BAGIAN 02</span><h2>Mini Project</h2></div>
+      <p>Form pendaftaran workshop dengan fitur interaktif.</p>
+    </div>
+    <section class="panel workshop-panel">
+      <div class="workshop-intro"><span class="eyebrow">WORKSHOP REGISTRATION</span><h2>Daftar Workshop</h2><p>Lengkapi data berikut untuk mendaftar sesi workshop pilihanmu.</p></div>
+      <form id="formWorkshop" novalidate>
+        <div class="form-grid">
+          <div><label for="workshopNama">Nama lengkap</label><input id="workshopNama" type="text" maxlength="50" placeholder="Masukkan nama"></div>
+          <div><label for="workshopEmail">Email</label><input id="workshopEmail" type="email" placeholder="nama@email.com"></div>
+          <div class="full-width"><label for="sesiWorkshop">Pilih sesi workshop</label><select id="sesiWorkshop"><option value="">-- Pilih sesi --</option><option value="HTML & CSS Dasar">HTML & CSS Dasar</option><option value="JavaScript untuk Pemula">JavaScript untuk Pemula</option><option value="UI/UX Design">UI/UX Design</option></select></div>
+        </div>
+        <div class="live-summary"><div><span class="summary-label">Panjang nama</span><strong><span id="jumlahNamaWorkshop">0</span> karakter</strong></div><div><span class="summary-label">Sesi dipilih</span><strong id="ringkasanSesi">Belum dipilih</strong></div></div>
+        <p id="pesanWorkshop" class="feedback" aria-live="polite"></p>
+        <div class="actions"><button type="submit">Kirim pendaftaran</button><button type="reset" class="secondary">Reset form</button></div>
+      </form>
+    </section>
+
+    <section class="panel experiments">
+      <div class="panel-title"><span class="number">★</span><div><h3>Eksperimen Mandiri</h3><p>Fitur tambahan dari instruksi modul.</p></div></div>
+      <div class="experiment-row"><div><strong>Eksperimen 3 & 4</strong><p>Ubah pilihan sesi dan sembunyikan/tampilkan paragraf.</p></div><button id="toggleParagraf" class="secondary" type="button">Sembunyikan paragraf</button></div>
+      <p id="paragrafEksperimen">Paragraf ini dapat disembunyikan dan ditampilkan kembali menggunakan class CSS.</p>
+      <p class="note">Eksperimen 1 (hapus item), 2 (nama minimal tiga karakter), dan 3 (event change) juga diterapkan pada aplikasi di atas.</p>
+    </section>
+
+    <section class="panel evaluation">
+      <div class="panel-title"><span class="number">Q&A</span><div><h3>Jawaban Pertanyaan Evaluasi</h3><p>Jawaban berdasarkan materi pada modul praktikum.</p></div></div>
+      <ol>
+        <li><strong>Apa yang dimaksud dengan DOM dan apa manfaatnya?</strong><p>DOM (Document Object Model) adalah representasi struktur dokumen HTML dalam bentuk objek yang dapat diakses dan dimanipulasi oleh JavaScript. Manfaatnya yaitu memilih elemen, mengubah konten, mengatur kelas CSS, dan merespons tindakan pengguna.</p></li>
+        <li><strong>Apa perbedaan getElementById(), querySelector(), dan querySelectorAll()?</strong><p>getElementById() memilih elemen berdasarkan ID. querySelector() memilih elemen pertama yang cocok dengan selector CSS. querySelectorAll() memilih semua elemen yang cocok dengan selector CSS.</p></li>
+        <li><strong>Apa fungsi addEventListener() dan sebutkan tiga contoh event?</strong><p>addEventListener() menghubungkan suatu event dengan fungsi yang dijalankan ketika event terjadi. Contohnya click, input, dan submit.</p></li>
+        <li><strong>Mengapa event.preventDefault() digunakan pada event submit form?</strong><p>Untuk mencegah perilaku bawaan form, seperti halaman dimuat ulang, sehingga JavaScript dapat memeriksa data dan menampilkan hasil validasi terlebih dahulu.</p></li>
+        <li><strong>Apa perbedaan textContent dan innerHTML dari sisi penggunaan dan keamanan?</strong><p>textContent digunakan untuk menampilkan atau mengubah teks biasa. innerHTML digunakan untuk membaca atau mengubah markup HTML. textContent lebih aman untuk menampilkan input pengguna karena tidak menafsirkan teks sebagai HTML.</p></li>
+        <li><strong>Bagaimana classList.toggle() membantu mengubah tampilan elemen?</strong><p>classList.toggle() menambahkan kelas jika kelas belum ada dan menghapusnya jika sudah ada. Dengan demikian, tampilan elemen dapat diaktifkan atau dinonaktifkan melalui JavaScript.</p></li>
+        <li><strong>Sebutkan minimal tiga skenario pengujian validasi form.</strong><p>Semua input dikosongkan, format email tidak valid, usia di bawah 17 tahun, nama kurang dari tiga karakter, serta seluruh input diisi dengan benar.</p></li>
+      </ol>
+    </section>
+  </main>
+  <footer><p>Praktikum 6 · JavaScript DOM dan Event Handling</p><span>Pemrograman Web</span></footer>
+</body>
+</html>

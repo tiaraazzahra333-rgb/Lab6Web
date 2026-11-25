@@ -1,0 +1,18 @@
+CHECKLIST PENGUMPULAN PRAKTIKUM 6 — LAB6WEB
+
+[ ] Buka index.html di browser dan pastikan tampil normal.
+[ ] Uji tombol pada Latihan 1–4.
+[ ] Uji lima skenario validasi form.
+[ ] Uji To-do List: tambah, tandai selesai, hapus.
+[ ] Uji Mini Project: pendaftaran berhasil dan validasi gagal.
+[ ] Uji Eksperimen 3 & 4: paragraf tampil dan tersembunyi.
+[ ] Buka eksperimen-5-tanpa-defer.html dan periksa Console.
+[ ] Pastikan folder screenshots ikut diunggah.
+[ ] Pastikan README.md tampil di halaman utama repository GitHub.
+[ ] Pastikan file index.html, style.css, script.js, dan eksperimen-5-tanpa-defer.html ada.
+[ ] Salin URL repository GitHub dan kirim sesuai instruksi dosen.
+
+CATATAN:
+- Folder ini berisi source code dan dokumentasi screenshot.
+- Beberapa screenshot dokumentasi awal merupakan crop dari tangkapan layar halaman penuh.
+- Screenshot pengujian To-do List, Mini Project, dan Eksperimen 3 & 4 yang dikirim terpisah tersedia dengan awalan nama 14, 15, dan 16.
